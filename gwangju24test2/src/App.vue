@@ -29,7 +29,6 @@
 
 <!--bootstrap 선택기능-->
 
-
   <div class="row align-items-center" >
    <div class="bmenubar" >
     <p class="bmenubartext">대상자별(혜택/복지)</p>
@@ -79,6 +78,8 @@
 
 </div>
 </div>
+
+
 
 
 
@@ -191,7 +192,7 @@ margin-top: 75px;
 
 .choicebox{
 height:200px;
-width: 1290px;;
+width: 1350px;;
 background-color: #f0f4fafb;
 position: relative;
 left: 370px;
@@ -204,15 +205,11 @@ transform: translate(0, -10px);
 }
 
 /*파란색칸, 회색칸 들어갈 섹션 */
-.container{
-  flex-wrap: nowrap; /* 줄 바꿈 없이 한 줄에 표시 */
-  position: absolute;
-  top: 390px;
-}
+
 .menubar{
   background-color:#9EBDF8;
   height:200px;
-  width: 450px;
+  width: 100%;
   border-top-right-radius: 10px; /*둥근모서리*/
   border-bottom-right-radius: 10px; /*둥근모서리*/
   z-index: 500;
