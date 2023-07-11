@@ -20,7 +20,7 @@
   </header>
 </div>
 <!--배너-->
-  <div class="banner" >
+  <div class="banner">
     <img src="./assets/배너.png" alt="배너사진" class="bannersize">
   </div>
 
@@ -29,14 +29,14 @@
 
 <!--bootstrap 선택기능-->
 
-  <div class="row align-items-center" >
+  <div class="align-items-center">
    <div class="bmenubar" >
     <p class="bmenubartext">대상자별(혜택/복지)</p>
    </div>
   </div>
 
 
-<div class="choicebox"><!--선택바-->
+<div class="choicebox">
   <div class="row">
 
  <div class="image-container">
@@ -75,12 +75,8 @@
         
       </div>
 
-
 </div>
 </div>
-
-
-
 
 
 <!--슬라이딩 바-->
@@ -96,7 +92,13 @@
 </template>
 
 <script>
-
+export default {
+  methods: {
+    goToPage2() {
+      this.$router.push('/page2');
+    }
+  }
+};
 
 </script>
 
@@ -153,17 +155,23 @@ nav{
 
 
 .banner{
-
-height: 300px;
-width: 1000px;
-margin-left:350px;
+  display: flex;
+  height: 300px;
+  width: 1000px;
+  margin-left: 350px;
+  margin-top: 100px;
+  position: fixed; /* 배너를 고정시키기 위해 position 속성 추가 */
+  top: 0; /* 배너를 화면 상단에 고정시키기 위해 top 속성 추가 */
+  left: 0; /* 배너를 화면 좌측에 고정시키기 위해 left 속성 추가 */
 }
+
 .bannersize{
   flex-wrap:wrap;
   margin-top: 20px;
   width: 1000px;
   height: 300px;
-  padding-bottom: 13px;
+  padding-bottom: 20px;
+  z-index:-3;
 }
 
 /*bootstrap 이용*/
@@ -176,27 +184,31 @@ margin-left:350px;
   background-color: #9EBDF8;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-  z-index: 500;
-  margin-bottom: 8px;
+  z-index: 600;
+  margin-bottom: 300px;
   text-align: center;
+
+  position: relative;
+  top:297px;
 }
 
 /*대상자별 폰트 및 위치조정 */
 .bmenubartext{
 font-size: 30px;
 font-weight:bold;
-margin-top: 75px;
+padding-top: 75px;
 
 }
 
 
 .choicebox{
-height:200px;
+height:201px;
 width: 1350px;;
 background-color: #f0f4fafb;
 position: relative;
 left: 370px;
-bottom: 207px;
+bottom: 205px;
+z-index:20px;
 }
 
 
