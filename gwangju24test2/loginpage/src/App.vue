@@ -13,7 +13,7 @@
   </div>
 
   <body>
-  <div class="stpeline">
+  <div style="margin-top:50px">
    <div class="stepbar">
     <div class="step1">1. 실명확인</div>
     <div class="step2"></div>
@@ -23,6 +23,61 @@
   </div>
 
   <div class="line"></div>
+
+  <div id="form-main" class="container-sm px-5 text-center">
+        <form v-on:submit.prevent="submitForm" class="card mx-auto" style="background-color: rgba(218, 255, 251 ,0.2); width:70%;">
+        <div class="row mb-3">
+            <div class="col-sm-2"></div>
+           <label for="emailInput" class="col-sm-2 col-form-label">이메일</label>
+        <div class="col-sm-5">
+            <input type="email" class="form-control" id="emailInput" placeholder="예) example@naver.com">
+        </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">전송</button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-2"></div>
+             <label for="verifyInput" class="col-form-label col-sm-2">인증번호</label>
+            <div class="col-sm-5">
+              <input type="password" class="form-control" id="verifyInput">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">확인</button>
+              </div>
+          </div>
+
+          <div class="row mb-3 pb-3">
+            <div class="col-sm-2"></div>
+             <label for="nameInput" class="col-form-label col-sm-2">이름</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="nameInput" placeholder="예) 홍길동">
+            </div>
+          </div>
+
+          <div class="row mb-3 pb-3">
+            <div class="col-sm-2"></div>
+                <label for="pwInput" class="col-form-label col-sm-2">비밀번호</label>
+            <div class="col-sm-5">
+              <input type="password" class="form-control" id="pwInput">
+            </div>
+          </div>
+
+          <div class="row mb-3 pb-3">
+            <div class="col-sm-2"></div>
+             <label for="pwInput" class="col-form-label col-sm-2">비밀번호 확인</label>
+            <div class="col-sm-5">
+              <input type="password" class="form-control" id="pwInput">
+            </div>
+          </div>
+
+          <div class="col-auto p-2">
+            <button type="submit" class="btn btn-primary mb-3">가입하기</button>
+          </div>
+        </form>
+      </div>
+      <div></div>
 </body>
 
 
@@ -89,16 +144,13 @@ export default {
     color: rgba(0, 0, 0, 0.8);
   }
   
-  .steplin{
-  position:absolute;
-  top: 200px;
-  }
+
  .stepbar{
   position:relative;
-  left : 600px;
+  left : 550px;
   background-color: silver;
   width: 600px;
-  height: 150px;
+  height: 100px;
   top :120px;
   border-radius: 10px;
   z-index: 1;
@@ -107,10 +159,10 @@ export default {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  padding-top: 50px;
+  padding-top: 25px;
   background-color: #8392ED;
   width: 280px;
-  height: 150px;
+  height: 100px;
   border-radius: 10px;
   z-index: 50;
   position: absolute;
@@ -118,11 +170,11 @@ export default {
 .step2{
   text-align: right;
   width: 0px;
-  border-left: 75px solid #8392ED;
-  border-top: 75px solid transparent;
-  border-bottom: 75px solid transparent;
+  border-left: 65px solid #8392ED;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
   position: relative;
-  left: 275px;
+  left: 274px;
 }
 .step2text{
   text-align: right;
@@ -131,15 +183,25 @@ export default {
   padding-bottom: 500px;
   padding-right: 50px;
   position: relative;
-  bottom:95px;
+  bottom:75px;
 }
 .line{
   flex-wrap:wrap;
   border: solid 1px;
   width: 1000px;
   position: relative;
-  top: 150px;
-  left: 400px;
+  top: 180px;
+  left: 350px;
 }
- 
+.card{
+        color: black;
+        text-shadow: 0px 1px 3px #000;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin-top: 250px;
+        padding-top:120px;
+        margin-bottom:120px;
+    }
+    .btn{
+      background-color: #176B87;
+    }
 </style>
