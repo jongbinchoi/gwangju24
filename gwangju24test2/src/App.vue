@@ -92,14 +92,6 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    goToPage2() {
-      this.$router.push('/page2');
-    }
-  }
-};
-
 </script>
 
 <style>
