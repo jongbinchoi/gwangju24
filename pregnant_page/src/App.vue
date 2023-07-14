@@ -12,7 +12,7 @@
     </header>
   </div>
       <span class="border-background">
-        <div class="scrap-title-text">노약자/장애인 정보 게시판</div>
+        <div class="scrap-title-text"> 임산부 정보 게시판</div>
         <div class="current-page">현재페이지 100/300</div>
         <span class="underline"></span>
 <div class="table-container">
@@ -212,7 +212,6 @@ function toggleStarColor(checkbox) {
 .scrap-title-text{
   font-size: 250%;
   font-weight: 600;
-  padding-left: 150px;
   padding-top: 40px;
   padding-right: 580px;
 }
