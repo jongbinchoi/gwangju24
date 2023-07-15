@@ -1,33 +1,17 @@
 <template>
-  <div id ="wrap">
-    <header>
-      <a class="logo" href="../App.vue">
-        <img src="../assets/mainlogo.png" height="100px">
-      </a>
-      <nav>
-        <ul class="nav-items">
-          <li><a href="#"><i class="fa-regular fa-user"></i></a></li>
-        </ul>
-      </nav>
-    </header>
-  </div>
-    <body>
       <span class="border-background">
         <div class="scrap-title-text"> 나의 스크랩 게시판</div>
         <div class="current-page">현재페이지 100/300</div>
         <span class="underline"></span>
       </span>
-      <div type="text" style=""></div>
+      <div type="text"></div>
       <ul class="list-group m-2 p-3">
-      <button type="button" class="list-group-item list-group-item-action first-button" aria-current="true">
-        초기화면
-      </button>
-      <button type="button" class="list-group-item list-group-item-action">정보게시판</button>
-      <button type="button" class="list-group-item list-group-item-action">추천게시판</button>
-      <button type="button" class="list-group-item list-group-item-action">나의 스크랩</button>
-      <button type="button" class="list-group-item list-group-item-action last-button">내 정보</button>
+      <button type="button" class="list-group-item list-group-item-action first-button" aria-current="true">노인/장애인</button>
+      <button type="button" class="list-group-item list-group-item-action">기초수급자</button>
+      <button type="button" class="list-group-item list-group-item-action ">임산부</button>
+      <button type="button" class="list-group-item list-group-item-action ">자유게시판</button>
+      <button type="button" class="list-group-item list-group-item-action last-button">나의스크랩</button>
       </ul>
-    </body> 
 </template>
 <script>
 

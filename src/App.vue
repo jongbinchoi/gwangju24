@@ -1,7 +1,7 @@
 <template>
   <div id ="wrap">
   <header>
-    <a class="logo" href=""><router-link to="/"></router-link>
+    <a class="logo" href="/">
       <img src="./assets/mainlogo.png" height="100px">
     </a>
     <nav>
