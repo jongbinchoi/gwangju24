@@ -11,7 +11,7 @@
           <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bars"></i></a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item"><router-link to="/Edit">나의 정보</router-link></a></li>
-            <li><a class="dropdown-item" href="#">설정</a></li>
+            <li><a class="dropdown-item"><router-link to="/boardlist">설정</router-link></a></li>
             <li><a class="dropdown-item" href="#">로그아웃</a></li>
           </ul>
         </li>

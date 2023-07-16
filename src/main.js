@@ -8,6 +8,11 @@ import EditProfile from './components/EditProfile';
 import OldBoard from './components/board/OldBoard';
 import BasicBoard from './components/board/BasicBoard';
 import PregBoard from './components/board/PregBoard';
+import BoardList from './components/BoardList.vue';
+// 각 게시글 자세히 보기
+import OldDetail from './components/board/OldDetail';
+import PregDetail from './components/board/PregDetail';
+import BasicDetail from './components/board/BasicDetail';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -39,6 +44,22 @@ const router = createRouter({
         {
             path: '/article/pregnants',
             component: PregBoard
+        },
+        {
+            path: '/boardlist',
+            component: BoardList
+        },
+        {
+            path: '/article/oldmans-disables/:id',
+            componet: OldDetail
+        },
+        {
+            path: '/article/basic-recipients/:id',
+            componet: BasicDetail
+        },
+        {
+            path: '/article/pregnants/:id',
+            componet: PregDetail
         },
     ]
 })
