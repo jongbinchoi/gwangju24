@@ -12,30 +12,30 @@
           <h4 class="main-text">대상자별 (혜택/복지)</h4>
         </div>
         <div class="col" style="position: relative;">
-          <div class="card" style="width: 10rem; position:absolute; top: 40px; left: 100px;">
+          <a href="#" class="card" @click="confirmOld()" style="width: 10rem; position:absolute; top: 40px; left: 100px;">
             <img src="../assets/old.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">노인/장애인</h5>
             </div>
-          </div>
+          </a>
         </div>
         <hr class="vr">
         <div class="col" style="position: relative;">
-          <div class="card" style="width: 8rem; position:absolute; top: 20px; left: 100px;">
+          <a href="#" class="card" @click="confirmBasic()" style="width: 8rem; position:absolute; top: 20px; left: 100px;">
             <img src="../assets/basic-pay.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">기초수급자</h5>
             </div>
-          </div>
+          </a>
         </div>
         <hr class="vr">
         <div class="col" style="position: relative;"  >
-          <div class="card" style="width: 8rem; position:absolute; top: 20px; left: 70px;">
+          <a href="#" class="card" @click="confirmPreg()" style="width: 8rem; position:absolute; top: 20px; left: 70px;">
             <img src="../assets/preg.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">임산부</h5>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
     <!-- 슬라이드 바 -->
     <div class="side-bar">
       <ul class="side-items">
-        <li><button @click="confirmInput" type="button" href="#" class="side-btn btn btn-outline-primary">나의 스크랩</button></li>
+        <li><button @click="confirmScrap" type="button" href="#" class="side-btn btn btn-outline-primary">나의 스크랩</button></li>
         <li><button type="button" href="#" class="side-btn btn btn-outline-primary"><router-link to="/oldboard">자유게시판</router-link></button></li>
         <li><i class="side-icon fa-solid fa-bars fa-rotate-270"></i></li>
       </ul>
@@ -54,13 +54,23 @@
 </template>
 
 <script>
-export default{
+  export default{
   methods: {
-        confirmInput() {
-            this.$router.push('');
+        confirmOld() {
+            this.$router.push('/article/oldmans-disables');
+        },
+        confirmBasic() {
+            this.$router.push('/article/basic-recipients');
+        },
+        confirmPreg() {
+            this.$router.push('/article/pregnants');
+        },
+        confirmScrap() {
+            this.$router.push('/article/scrap');
         }
     },
 }
+
 
 </script>
 
