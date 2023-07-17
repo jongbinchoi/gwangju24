@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
-//import axios from 'axios';
 import Myboard from './components/board/MyBoard.vue';
 import MainPage from './components/MainPage.vue';
 import EditProfile from './components/EditProfile';
@@ -11,6 +10,8 @@ import PregBoard from './components/board/PregBoard';
 import OldBoardDetail from './components/board/OldBoardDetail';
 import PregBoardDetail from './components/board/PregBoardDetail';
 import BasicBoardDetail from './components/board/BasicBoardDetail';
+import LoginPage from './components/LoginPage.vue';
+import SignupPage from './components/SignupPage.vue';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -30,6 +31,14 @@ const router = createRouter({
         {
             path: '/edit',
             component: EditProfile,
+        },
+        {
+            path: '/login',
+            component: LoginPage
+        },
+        {
+            path: '/sign',
+            component: SignupPage
         },
         {
             path: '/article/oldmans-disables',
@@ -64,14 +73,13 @@ router.beforeEach(function (to, from, next) {
     })) {
       // 이동할 페이지에 인증 정보가 필요하면 경고 창을 띄우고 페이지 전환은 하지 않음
       alert('로그인이 필요한 페이지입니다.');
-      router.push('/edit')
+      router.push('/login')
     } else {
       console.log("routing success : '" + to.path + "'");
       next(); // 페이지 전환
     }
   });
 const app = createApp(App);
-//app.config.globalProperties.$axios = axios;
 
 app.use(router);
 app.mount('#app');

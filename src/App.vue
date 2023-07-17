@@ -6,13 +6,16 @@
     </a>
     <nav>
       <ul class="nav-items">
-        <li><a href="#"><i class="fa-regular fa-user"></i></a></li>
+        <li v-if="isloggedIn" class="login-name"><p>환영합니다.</p></li>
+        <li v-if="!isloggedIn" class="login-name"><p>로그인하세요.</p></li>
+        <li><a href="#"><i @click="confirmLogin" class="fa-regular fa-user"></i></a></li>
         <li class="nav-item dropdown">
           <a class="nav-link" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bars"></i></a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item"><router-link to="/Edit">나의 정보</router-link></a></li>
-            <li><a class="dropdown-item" href="#">설정</a></li>
-            <li><a class="dropdown-item" href="#">로그아웃</a></li>
+            <li><a v-if="isloggedIn" class="dropdown-item"><router-link to="/Edit">나의 정보</router-link></a></li>
+            <li><a v-if="!isloggedIn" class="dropdown-item" href="#"><router-link to="/sign">회원가입</router-link></a></li>
+            <li><a v-if="!isloggedIn" class="dropdown-item" href="#"><router-link to="/login">로그인</router-link></a></li>
+            <li><a v-if="isloggedIn" class="dropdown-item" href="#">로그아웃</a></li>
           </ul>
         </li>
       </ul>
@@ -26,7 +29,33 @@
 
 
 <script>
+// import ChildComponent from './components/LoginPage.vue';
+import router from './main.js'
+  export default{
+    data(){
+      return{
+     isloggedIn : false
+      }
+    },
+    mounted(){
+      const tokenA = localStorage.getItem('token');
+      console.log(tokenA)
+      if(tokenA){
+        this.isloggedIn = true;
+      }
+    },
+    computed:{
 
+    },
+    methods: {
+      confirmLogin() {
+        this.$router.push('/login');
+            
+      }
+    },
+    router
+  }
+  
 </script>
 
 <style>
@@ -79,7 +108,11 @@ nav{
   color: rgba(0, 0, 0, 0.8);
 }
 
-
+.login-name{
+  font-size: 20px;
+  font-style: bolder;
+  padding-right: 20px;
+}
 
 .banner{
 height: 300px;
