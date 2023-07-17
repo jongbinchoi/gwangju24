@@ -15,14 +15,14 @@
             <button @click="login" type="button" class="btn btn-primary">로그인</button>
           </div>
           <div class="d-grid gap-2 mar">
-            <GoogleLogin :callback="callback" :prompt="'consent'" :auto-login="true">
+            <!-- <GoogleLogin :callback="callback" :prompt="'consent'" :auto-login="true">
               <template v-slot>
-                <!-- <button @click="googlelogin" class="btn btn-outline-secondary text-black" type="button" style="width: 100%">
+               <button @click="googlelogin" class="btn btn-outline-secondary text-black" type="button" style="width: 100%">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" style="width: 14px; margin-bottom: 0.5%;" />
                   Google 계정으로 가입하기
                 </button> -->
-              </template>
-            </GoogleLogin>
+            <!--  </template>
+            </GoogleLogin> -->
             <button class="btn btn-outline-secondary" type="button" @click="goToSignup" style="width: 100%"><i class="far fa-light fa-envelope evloctaion"></i> 이메일 계정으로 가입하기</button>
           </div>
         </div>

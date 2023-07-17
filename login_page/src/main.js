@@ -2,7 +2,7 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
-import vue3GoogleLogin from "vue3-google-login";
+
 // import axios from 'axios'; //
 import Myboard from './components/board/MyBoard.vue';
 import MainPage from './components/MainPage.vue';
@@ -15,7 +15,6 @@ import SignupPage from './components/SignupPage.vue';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const CLIENT_ID = "716095266829-e3i446sgc46d6nva6qkpdjipqpbpai0q.apps.googleusercontent.com"
 
 // 각 컴포넌트로 통하는 라우터
 const router = createRouter({
@@ -74,9 +73,9 @@ router.beforeEach(function (to, from, next) {
 
 
 createApp(App)
-.use(vue3GoogleLogin,{
-  clientId: CLIENT_ID,
-})
+// .use(vue3GoogleLogin,{
+//   clientId: CLIENT_ID,
+// })
 .use(router)
 .mount('#app');
 
