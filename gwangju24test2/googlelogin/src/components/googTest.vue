@@ -31,23 +31,38 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { decodeCredential } from 'vue3-google-login';
 
 export default {
   data() {
     return {
+      id: '',
+      password: '',
       loggedIn: false,
       user: null
     };
   },
   methods: {
-    // 로그인 버튼 클릭 이벤트 처리
     login() {
-      // 로그인 성공 처리
-      const response = {
-        // ... 로그인 응답 데이터
-      };
-      this.callback(response);
+      axios
+        .post('/login', {}, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          auth: {
+            username: this.id,
+            password: this.password,
+          },
+        })
+        .then(response => {
+          const token = response.data.token;
+          localStorage.setItem('token', token);
+          this.callback(response); // Call the callback function for successful login
+        })
+        .catch(error => {
+          // Handle login error
+        });
     },
     callback(response) {
       console.log('로그인됨');
@@ -55,19 +70,24 @@ export default {
       console.log(response);
       this.user = decodeCredential(response.credential);
 
-      // 사용자 정보를 로컬 스토리지에 저장 (선택 사항)
+      // Store user information in local storage (optional)
       localStorage.setItem('user', JSON.stringify(this.user));
 
-      // "/about" 페이지로 리디렉션
+      // Redirect to "/about" page
       this.$router.push({
         path: '/about',
-        meta: { user: this.user } // 사용자 정보를 meta 필드에 첨부
+        meta: { user: this.user } // Attach user information to the meta field
       });
     }
-  }
+  },
+  mounted() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.$router.push('/'); 
+    }
+  },
 };
-
- </script>
+</script>
  
  <style>
  *{ /* *전체 스타일에 적용하겠다. */
