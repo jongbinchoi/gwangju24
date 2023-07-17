@@ -18,6 +18,7 @@
 <div class="table-container">
   <table class="table table-striped">
     <thead>
+      <button @click="test" type="button">test</button>
       <tr>
       <th scope="col" class="number">번호</th>
       <th scope="col">스크랩</th>
@@ -74,14 +75,41 @@
 </template>
 
 <script>
+import axios from 'axios';
 
-export default {
-  name: 'App',
+export default{
+  Content:{
+    id : 1,
+    title: '정보게시판입니다',
+    author: '광주광역시청',
+    date: '2023.03.31',
+    content: '안녕하세요 정보게시판입니다'
+  }
+  Methods: {
+   oldmanDisablesTable(){
+  axios
+    .get('https://reqres.in/api/users?page=2')
+    .then(res=> {
+    // handle success
+    console.log(res);
+  })
+  .catch(err=> {
+    // handle error
+    console.log(err);
+  })
+  .finally(()=> {
+    // always executed
+  });
+   }
+  }
 }
+
 // eslint-disable-next-line no-unused-vars
 function toggleStarColor(checkbox) {
   checkbox.checked = !checkbox.checked;
 }
+
+
 
 
 </script>
