@@ -1,13 +1,16 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
-// import axios from 'axios'; //
+//import axios from 'axios';
 import Myboard from './components/board/MyBoard.vue';
 import MainPage from './components/MainPage.vue';
 import EditProfile from './components/EditProfile';
 import OldBoard from './components/board/OldBoard';
 import BasicBoard from './components/board/BasicBoard';
 import PregBoard from './components/board/PregBoard';
+import OldBoardDetail from './components/board/OldBoardDetail';
+import PregBoardDetail from './components/board/PregBoardDetail';
+import BasicBoardDetail from './components/board/BasicBoardDetail';
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -40,6 +43,18 @@ const router = createRouter({
             path: '/article/pregnants',
             component: PregBoard
         },
+        {
+            path: '/article/oldmans-disables/:id',
+            component: OldBoardDetail
+        },
+        {
+            path: '/article/pregnants/:id',
+            component: PregBoardDetail
+        },
+        {
+            path: '/article/basic-recipients/:id',
+            component: BasicBoardDetail
+        },
     ]
 })
 
@@ -56,7 +71,7 @@ router.beforeEach(function (to, from, next) {
     }
   });
 const app = createApp(App);
-
+//app.config.globalProperties.$axios = axios;
 
 app.use(router);
 app.mount('#app');

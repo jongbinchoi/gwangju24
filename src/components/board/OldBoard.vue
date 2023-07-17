@@ -3,50 +3,30 @@
     <div class="scrap-title-text">노인/장애인 정보 게시판</div>
     <div class="current-page">현재페이지 100/300</div>
     <span class="underline"></span>
-<div class="table-container">
-<table class="table table-striped">
-<thead>
-  <tr>
-  <th scope="col" class="number">번호</th>
-  <th scope="col">스크랩</th>
-  <th scope="col">제 목</th>
-  <th scope="col">조회수</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <th scope="row" class = "number">1</th>
-  <td class="star">
-  <input type="checkbox" id="starCheckbox" onclick="toggleStarColor(this)">
-  <label for="starCheckbox"></label>
-  </td>
-  <td class="board-title"></td>
-  <td></td>
 
-</tr>
-<tr>
-  <th scope="row" class="number">2</th>
-  <td class="star">
-  <input type="checkbox" id="starCheckbox" onclick="toggleStarColor(this)">
-  <label for="starCheckbox"></label>
-  </td>
-  <td class="board-title"></td>
-  <td></td>
-
-</tr>
-<tr>
-  <th scope="row" class="number">3</th>
-  <td class="star">
-  <input type="checkbox" id="starCheckbox" onclick="toggleStarColor(this)">
-  <label for="starCheckbox"></label>
-  </td>
-  <td class="board-title"></td>
-  <td></td>
-
-</tr>
-</tbody>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">스크랩</th>
+      <th scope="col">제목</th>
+      <th scope="col">작성기관</th>
+      <th scope="col">작성일</th>
+      <th scope="col">조회수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(row, idx) in results" :key="idx">
+					<td>{{row.id}}</td>
+          <td>*</td>
+					<router-link :to="`/oldmans-disables/${row.id}`" :params="{ text: row.content }">{{ row.title }}</router-link>
+					<td>{{row.author}}</td>
+          <td>{{ row.date }}</td>
+					<td>123</td>
+				</tr>
+  </tbody>
 </table>
-</div>
+
   </span>
   <div type="text" style=""></div>
   <ul class="list-group m-2 p-3">
@@ -61,8 +41,37 @@
 <script>
 
 export default{
-methods: {
-      confirmOld() {
+  data() { //변수생성
+		return{
+      results: [],
+		};
+	}
+	,mounted() { //페이지 시작하면은 자동 함수 실행
+		this.loadExperiences();
+	},
+    methods: {
+    loadExperiences() {
+      fetch(`/article/oldmans-disables/`)
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then((data) => {
+          const results = [];
+          for (const id in data) {
+            results.push({
+              id: data[id].id,
+              title: data[id].title,
+              author: data[id].author,
+              date: data[id].date,
+            });
+          }
+          this.results = results;
+          console.log(results);
+        });
+    },
+    confirmOld() {
           this.$router.push('/article/oldmans-disables');
       },
       confirmBasic() {
@@ -74,7 +83,8 @@ methods: {
       confirmScrap() {
           this.$router.push('/article/scrap');
       }
-  },
+    }
+
 }
 // eslint-disable-next-line no-unused-vars
 function toggleStarColor(checkbox) {
@@ -168,7 +178,7 @@ top: 50px;
 }
 .table{
 margin: 0 auto;
-width: 75%;
+width: 80%;
 height: 30px;
 align-content: center;
 background-color: rgb(85, 85, 85);
@@ -214,6 +224,7 @@ padding-left: 150px;
 padding-top: 40px;
 padding-right: 580px;
 }
+
 .current-page{
 font-size: 70%;
 padding-left: 700px;
