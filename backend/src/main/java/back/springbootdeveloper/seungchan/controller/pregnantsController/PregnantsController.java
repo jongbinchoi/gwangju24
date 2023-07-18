@@ -1,8 +1,7 @@
 package back.springbootdeveloper.seungchan.controller.pregnantsController;
 
-import back.springbootdeveloper.seungchan.domain.Article;
-import back.springbootdeveloper.seungchan.dto.EachArticleResponseDTO;
-import back.springbootdeveloper.seungchan.service.oldmansDisablesService.OldmansDisablesService;
+import back.springbootdeveloper.seungchan.domain.Pregnants;
+import back.springbootdeveloper.seungchan.dto.pregnantDTO.EachArticleOfPregnantsResponseDTO;
 import back.springbootdeveloper.seungchan.service.pregnantsService.PregnantsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +18,10 @@ public class PregnantsController {
     @GetMapping("/article/pregnants/{id}")
     // @PathVariable 매너테이션은 URL에서 값을 가져오는 애너테이션
     // /api/articles/3 GET 요청을 받으면 id에 3이 들어온다.
-    public ResponseEntity<EachArticleResponseDTO> findArticleById(@PathVariable long id) {
-        Article article = pregnantsService.findById(id);
+    public ResponseEntity<EachArticleOfPregnantsResponseDTO> findArticleById(@PathVariable long id) {
+        Pregnants article = pregnantsService.findById(id);
 
         return ResponseEntity.ok()
-                .body(new EachArticleResponseDTO(article));
+                .body(new EachArticleOfPregnantsResponseDTO(article));
     }
 }

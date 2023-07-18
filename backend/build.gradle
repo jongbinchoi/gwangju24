@@ -26,6 +26,10 @@ dependencies {
 
     // 이메일 체크를 위한 의존성 주입
     implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+    // json 읽기
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.5'
 }
 
 test {

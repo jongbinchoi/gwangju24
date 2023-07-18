@@ -1,8 +1,9 @@
 package back.springbootdeveloper.seungchan.controller.oldmansdisablesController;
 
-import back.springbootdeveloper.seungchan.domain.Article;
-import back.springbootdeveloper.seungchan.dto.EachArticleResponseDTO;
+import back.springbootdeveloper.seungchan.domain.OldmanDisables;
+import back.springbootdeveloper.seungchan.dto.oldmandisableDTO.EachArticleOfOldmanDisableResponseDTO;
 import back.springbootdeveloper.seungchan.service.oldmansDisablesService.OldmansDisablesService;
+import back.springbootdeveloper.seungchan.util.TempDB;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +20,10 @@ public class OldmansDisablesController {
     @GetMapping("/article/oldmans-disables/{id}")
     // @PathVariable 매너테이션은 URL에서 값을 가져오는 애너테이션
     // /api/articles/3 GET 요청을 받으면 id에 3이 들어온다.
-    public ResponseEntity<EachArticleResponseDTO> findArticleById(@PathVariable long id) {
-        Article article = oldmansDisablesService.findById(id);
-
+    public ResponseEntity<EachArticleOfOldmanDisableResponseDTO> findArticleById(@PathVariable long id) {
+        OldmanDisables article = oldmansDisablesService.findOldmanDisableById(id);
+        TempDB tempDB = new TempDB();
         return ResponseEntity.ok()
-                .body(new EachArticleResponseDTO(article));
+                .body(new EachArticleOfOldmanDisableResponseDTO(article));
     }
 }
