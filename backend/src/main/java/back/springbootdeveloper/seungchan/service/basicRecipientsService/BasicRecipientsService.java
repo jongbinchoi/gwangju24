@@ -7,6 +7,7 @@ import back.springbootdeveloper.seungchan.util.Util;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -23,5 +24,9 @@ public class BasicRecipientsService {
             }
         }
         throw new IllegalArgumentException("각각의 게시물 예외 처리");
+    }
+
+    public List<Recipients> findAll() {
+        return articleService.getArticleOfRecipients();
     }
 }

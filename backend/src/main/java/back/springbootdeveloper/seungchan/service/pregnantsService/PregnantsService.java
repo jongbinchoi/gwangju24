@@ -8,6 +8,7 @@ import back.springbootdeveloper.seungchan.util.Util;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor // final이 붙거나  @NotNull이 붙는 필드의 생성자 추가
@@ -23,5 +24,9 @@ public class PregnantsService {
             }
         }
         throw new IllegalArgumentException("각각의 게시물 예외 처리");
+    }
+
+    public List<Pregnants> findAll() {
+        return articleService.getArticleOfPregnants();
     }
 }
